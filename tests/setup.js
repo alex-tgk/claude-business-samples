@@ -5,6 +5,11 @@
 
 require('@testing-library/jest-dom');
 
+// Polyfills for jsdom
+const { TextEncoder, TextDecoder } = require('util');
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+
 // Mock window.matchMedia for responsive testing
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
